@@ -1,0 +1,426 @@
+/* Vista previa con el formato del informe Word */
+
+.vista-previa {
+ max-width: none;
+ background: #d5dbe3;
+ padding: 28px 12px 40px;
+ overflow-x: auto;
+}
+
+.doc-hoja {
+ width: 210mm;
+ max-width: 210mm;
+ min-height: 297mm;
+ margin: 0 auto;
+ padding: 16mm 18mm 14mm 22mm;
+ border: 1px solid #c5ccd6;
+ box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+ font-family: Poppins, "Segoe UI", Arial, sans-serif;
+ font-size: 9.5pt;
+ line-height: 1.15;
+ color: #111;
+ text-align: justify;
+ background: #fff;
+}
+
+.doc-hoja::before {
+ display: none;
+}
+
+.doc-hoja table,
+.doc-hoja th,
+.doc-hoja td {
+ white-space: normal;
+}
+
+.doc-hoja table {
+ width: 100%;
+ min-width: 0;
+ font-size: inherit;
+ background: transparent;
+}
+
+.doc-top {
+ display: flex;
+ align-items: center;
+ justify-content: flex-start;
+ gap: 14px;
+ min-height: 0;
+ margin: 0 0 14px;
+ padding: 0 2px 9px;
+ background: transparent;
+ color: #0b2545;
+ box-shadow: none;
+ text-align: left;
+ border-bottom: 2.5px solid #0b2545;
+ position: relative;
+}
+
+.doc-top::after {
+ content: "";
+ position: absolute;
+ left: 2px;
+ bottom: -5px;
+ width: 84px;
+ height: 3px;
+ background: #6fbf2b;
+ border-radius: 2px;
+}
+
+.doc-top img {
+ width: 84px;
+ height: 84px;
+ object-fit: contain;
+ display: block;
+ flex: 0 0 84px;
+ background: transparent;
+}
+
+.doc-top-empresa {
+ margin: 0;
+ max-width: 430px;
+ text-align: left;
+ color: #0b2545;
+ font-size: 11pt;
+ font-weight: 700;
+ letter-spacing: 0.2px;
+ line-height: 1.25;
+}
+
+.doc-titulo-wrap {
+ display: grid;
+ grid-template-columns: 1fr 2.1fr 1fr;
+ align-items: start;
+ margin: 4px 0 8px;
+}
+
+.doc-titulo-centro {
+ text-align: center;
+}
+
+.doc-titulo,
+.doc-numero {
+ margin: 0;
+ padding: 0;
+ border: 0;
+ background: none;
+ color: #111;
+ font-family: Poppins, "Segoe UI", Arial, sans-serif;
+ font-size: 12pt;
+ font-weight: 700;
+ letter-spacing: 0;
+ text-transform: none;
+ line-height: 1.25;
+}
+
+.doc-cc {
+ min-height: 42px;
+ padding-left: 8px;
+ border-left: 1.5px solid #111;
+ font-size: 8pt;
+ line-height: 1.35;
+ text-align: left;
+}
+
+.doc-cc p {
+ margin: 0;
+}
+
+.doc-fechalinea {
+ margin: 8px 0 12px;
+ text-align: left;
+ font-style: normal;
+ font-size: 9.5pt;
+ color: #111;
+}
+
+.doc-memo {
+ width: 100%;
+ margin: 0 0 8px;
+ border-collapse: collapse;
+ font-size: 9.5pt;
+}
+
+.doc-memo th,
+.doc-memo td {
+ padding: 1px 8px 1px 0;
+ border: 0;
+ background: none;
+ color: #111;
+ font-weight: 400;
+ text-align: left;
+ text-transform: none;
+ letter-spacing: 0;
+ vertical-align: top;
+ white-space: normal;
+}
+
+.doc-memo th {
+ width: 92px;
+ font-size: 9.5pt;
+}
+
+.doc-memo .doc-negrita {
+ font-weight: 700;
+}
+
+.doc-memo .doc-separa td,
+.doc-memo .doc-separa th {
+ padding-bottom: 8px;
+}
+
+.doc-sec {
+ margin: 11px 0 4px;
+ font-weight: 700;
+ text-align: left;
+}
+
+.doc-sec span {
+ text-decoration: underline;
+}
+
+.doc-texto,
+.doc-item {
+ margin: 0 0 6px;
+ text-align: justify;
+}
+
+.doc-texto {
+ margin-left: 0.45cm;
+}
+
+.doc-item {
+ margin-left: 0.15cm;
+ padding-left: 1.15cm;
+ text-indent: -1.15cm;
+}
+
+.doc-item-2 {
+ margin-left: 0.55cm;
+ padding-left: 1.35cm;
+ text-indent: -1.35cm;
+}
+
+.doc-sub {
+ margin: 8px 0 4px 0.15cm;
+ font-weight: 700;
+ text-decoration: underline;
+ text-align: left;
+}
+
+.doc-centro {
+ margin: 10px 0 6px;
+ text-align: center;
+ font-weight: 700;
+}
+
+.doc-centro u {
+ text-underline-offset: 2px;
+}
+
+.doc-fuente {
+ margin: 6px 0 8px 0.8cm;
+ text-align: justify;
+}
+
+.doc-consulta {
+ width: 92%;
+ margin: 0 auto 8px;
+ border: 3px double #111;
+ border-collapse: collapse;
+}
+
+.doc-consulta td {
+ padding: 8px;
+ border: 3px double #111;
+ vertical-align: top;
+}
+
+.doc-ficha {
+ width: 100%;
+ border-collapse: collapse;
+ border: 2px solid #1f4e79;
+ font-size: 8pt;
+ line-height: 1.25;
+}
+
+.doc-ficha th,
+.doc-ficha td {
+ padding: 2px 6px;
+ border: 1px solid #8fa8c4;
+ text-align: left;
+ vertical-align: top;
+}
+
+.doc-ficha .doc-ficha-titulo {
+ background: #5b9bd5;
+ color: #fff;
+ font-weight: 700;
+ border-color: #1f4e79;
+}
+
+.doc-ficha .doc-ficha-sub {
+ background: #1f4e79;
+ color: #fff;
+ font-weight: 700;
+}
+
+.doc-ficha th {
+ width: 38%;
+ background: #d6e3f0;
+ color: #1f4e79;
+ font-weight: 700;
+}
+
+.doc-ficha td {
+ background: #f3f8fc;
+ color: #1f4e79;
+}
+
+.doc-hechos {
+ width: 100%;
+ margin: 4px 0 6px;
+ border-collapse: collapse;
+ table-layout: fixed;
+ font-size: 8pt;
+ line-height: 1.2;
+}
+
+.doc-hechos th,
+.doc-hechos td {
+ padding: 4px 5px;
+ border: 1px solid #111;
+ vertical-align: top;
+ text-align: left;
+ overflow-wrap: anywhere;
+ background: #fff;
+}
+
+.doc-hoja tbody tr,
+.doc-hoja tbody tr:nth-child(even),
+.doc-hoja tbody tr:hover {
+ background: transparent;
+}
+
+.doc-hechos th {
+ background: #0070c0;
+ color: #fff;
+ font-size: 7.5pt;
+ font-weight: 700;
+ text-align: center;
+ vertical-align: middle;
+}
+
+.doc-hechos .doc-tipo,
+.doc-hechos .doc-medio {
+ text-align: center;
+ font-weight: 700;
+ vertical-align: middle;
+}
+
+.doc-hechos .doc-medio {
+ font-weight: 400;
+}
+
+.doc-cita {
+ font-weight: 700;
+ font-style: italic;
+}
+
+.doc-vacio {
+ text-align: center;
+ font-style: italic;
+}
+
+.doc-atentamente {
+ margin: 18px 0 8px 0.45cm;
+ text-align: left;
+ font-style: normal;
+}
+
+.doc-firmas {
+ width: 100%;
+ margin-top: 8px;
+ border-collapse: collapse;
+}
+
+.doc-firmas td {
+ width: 50%;
+ padding: 8px 14px 0;
+ border: 0;
+ text-align: center;
+ vertical-align: top;
+}
+
+.doc-firma-espacio {
+ width: 62%;
+ height: 42px;
+ margin: 0 auto 6px;
+ border-bottom: 1px solid #111;
+}
+
+.doc-firmas strong,
+.doc-firmas span {
+ display: block;
+ line-height: 1.3;
+}
+
+.doc-nota-pie {
+ margin-top: 22px;
+ padding-top: 4px;
+ border-top: 1px solid #111;
+ font-size: 8pt;
+ text-align: justify;
+}
+
+.doc-nota-pie sup,
+.doc-nota {
+ font-size: 7pt;
+ font-weight: 700;
+}
+
+.obs-items {
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+ margin: 10px 0;
+}
+
+.obs-card {
+ padding: 10px 12px;
+ background: #f8fafc;
+ border: 1px solid #dbe3ed;
+ border-left: 4px solid #1769aa;
+ border-radius: 8px;
+}
+
+.obs-card p {
+ margin: 4px 0;
+ font-size: 13px;
+}
+
+.obs-editor {
+ margin: 8px 0 18px;
+ padding: 12px;
+ background: #f8fafc;
+ border: 1px dashed #b7c6d8;
+ border-radius: 8px;
+}
+
+@media print {
+ .doc-hoja {
+  width: auto;
+  max-width: none;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+ }
+
+ .doc-consulta,
+ .doc-hechos,
+ .doc-firmas {
+  break-inside: avoid;
+ }
+}

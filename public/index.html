@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+ <meta charset="UTF-8">
+
+
+
+ <meta name="viewport"
+
+    content="width=device-width, initial-scale=1.0">
+
+
+
+ <title>SISFIS | Sistema de Informes de Fiscalización</title>
+
+
+
+ <link rel="stylesheet" href="styles.css">
+ <link rel="stylesheet" href="documento.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+
+<body>
+
+
+
+ <!-- ENCABEZADO PRINCIPAL -->
+
+
+
+ <header>
+
+  <h1>SISFIS_SAUL</h1>
+
+  <p>Sistema de Gestión de Informes de Fiscalización</p>
+
+  <p>Proyecto académico con datos ficticios</p>
+
+ </header>
+
+
+
+ <!-- MENÚ DE NAVEGACIÓN -->
+
+
+
+ <nav class="navbar">
+
+  <a href="#inicio">Inicio</a>
+
+  <a href="#registro">Nuevo informe</a>
+
+  <a href="#informes">Informes registrados</a>
+
+  <a href="#vista-previa">Vista previa</a>
+
+ </nav>
+
+
+
+ <!-- CONTENIDO PRINCIPAL -->
+
+
+
+ <main class="contenedor" id="inicio">
+
+
+
+  <!-- PRESENTACIÓN -->
+
+
+
+  <section class="card">
+
+   <h2>Bienvenido al sistema SISFIS</h2>
+
+
+
+   <p>
+
+    Plataforma académica para registrar, consultar,
+
+    actualizar y eliminar informes de fiscalización
+
+    mediante servicios API RESTful.
+
+   </p>
+
+
+
+   <div class="alert alert-info">
+
+    <strong>Importante:</strong>
+
+    Todos los datos utilizados en esta práctica
+
+    son ficticios y tienen fines exclusivamente
+
+    educativos.
+
+   </div>
+
+  </section>
+
+
+
+  <!-- FORMULARIO DE REGISTRO -->
+
+
+
+  <section class="card" id="registro">
+
+
+
+   <h2>Registro de informe de fiscalización</h2>
+
+   <div class="acciones">
+    <button type="button" id="btnCargarModelo" class="btn btn-secundario">
+     Cargar texto del modelo Word
+    </button>
+   </div>
+
+
+
+   <p>
+
+    Complete la información solicitada para
+
+    registrar un nuevo informe.
+
+   </p>
+
+
+
+   <form id="form">
+
+
+
+    <!-- 1. DATOS DEL INFORME -->
+
+
+
+    <h3>1. Datos del informe</h3>
+
+
+
+    <div class="form-grid">
+
+
+
+     <div class="form-group">
+
+      <label for="numeroInforme">
+
+       Número de informe
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="numeroInforme"
+
+       name="numeroInforme"
+
+       placeholder="Ejemplo: 001-2026"
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="expediente">
+
+       Número de expediente *
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="expediente"
+
+       name="expediente"
+
+       placeholder="Ejemplo: 202600123456"
+
+       required
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="ciudad">
+
+       Ciudad
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="ciudad"
+
+       name="ciudad"
+
+       placeholder="Ejemplo: Huánuco"
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="fecha">
+
+       Fecha del informe
+
+      </label>
+
+
+
+      <input
+
+       type="date"
+
+       id="fecha"
+
+       name="fecha"
+
+      >
+
+     </div>
+
+
+
+    </div>
+
+
+
+    <!-- 2. DESTINATARIO Y REMITENTE -->
+
+
+
+    <h3>2. Destinatario y remitente</h3>
+
+
+
+    <div class="form-grid">
+
+
+
+     <div class="form-group">
+
+      <label for="destinatario">
+
+       A (destinatario)
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="destinatario"
+
+       name="destinatario"
+
+       placeholder="Ejemplo: Oficina Regional - OSINERGMIN"
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="supervisor">
+
+       De (supervisor / fiscalizador)
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="supervisor"
+
+       name="supervisor"
+
+       placeholder="Ejemplo: Ing. Juan Pérez Demo"
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="cargoSupervisor">
+
+       Cargo del supervisor
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="cargoSupervisor"
+
+       name="cargoSupervisor"
+
+       placeholder="Ejemplo: Supervisor - Empresa Supervisora E.I.R.L."
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="referencia">
+
+       Referencia
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="referencia"
+
+       name="referencia"
+
+       placeholder="Ejemplo: Registro de Hidrocarburos N.° 00000-060"
+
+      >
+
+     </div>
+
+
+
+    </div>
+
+
+
+    <label for="asunto">
+
+     Asunto
+
+    </label>
+
+
+
+    <input
+
+     type="text"
+
+     id="asunto"
+
+     name="asunto"
+
+     placeholder="Ejemplo: Fiscalización de seguridad de medios de transporte de combustibles líquidos..."
+
+    >
+
+
+
+    <!-- 3. AGENTE FISCALIZADO -->
+
+
+
+    <h3>3. Agente fiscalizado / Unidad</h3>
+
+
+
+    <div class="form-grid">
+
+
+
+     <div class="form-group">
+
+      <label for="empresa">
+
+       Agente fiscalizado / Empresa *
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="empresa"
+
+       name="empresa"
+
+       placeholder="Ejemplo: Transportes Demo S.A.C."
+
+       required
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="ruc">
+
+       R.U.C.
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="ruc"
+
+       name="ruc"
+
+       placeholder="Ejemplo: 20000000001"
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="placa">
+
+       Placa principal
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="placa"
+
+       name="placa"
+
+       placeholder="Ejemplo: ABC-123"
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="tracto">
+
+       Placa del tracto
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="tracto"
+
+       name="tracto"
+
+       placeholder="Ejemplo: XYZ-000"
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="capacidad">
+
+       Capacidad / compartimientos
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="capacidad"
+
+       name="capacidad"
+
+       placeholder="Ejemplo: 9000 galones, 6 compartimientos"
+
+      >
+
+     </div>
+
+
+
+    </div>
+
+
+
+    <h3>3.1. Datos de la unidad y de la diligencia</h3>
+
+    <p>
+     Estos datos completan el encabezado, la ficha del Registro
+     de Hidrocarburos y las firmas, con el mismo orden del modelo Word.
+    </p>
+
+    <div class="form-grid">
+
+     <div class="form-group">
+      <label for="registro">Registro de Hidrocarburos</label>
+      <input type="text" id="registro" name="registro" placeholder="Ejemplo: 00000-060-000000">
+     </div>
+
+     <div class="form-group">
+      <label for="empresaSupervisora">Empresa supervisora</label>
+      <input type="text" id="empresaSupervisora" name="empresaSupervisora" placeholder="Ejemplo: Supervisión Técnica Demostrativa E.I.R.L.">
+     </div>
+
+     <div class="form-group">
+      <label for="cartaLinea">Carta línea</label>
+      <input type="text" id="cartaLinea" name="cartaLinea" placeholder="Ejemplo: 0000000-0">
+     </div>
+
+     <div class="form-group">
+      <label for="compartimientos">Compartimientos</label>
+      <input type="text" id="compartimientos" name="compartimientos" placeholder="Ejemplo: seis">
+     </div>
+
+     <div class="form-group">
+      <label for="producto">Producto</label>
+      <input type="text" id="producto" name="producto" placeholder="Ejemplo: Combustibles líquidos (dato ficticio)">
+     </div>
+
+     <div class="form-group">
+      <label for="vigencia">Vigencia del registro</label>
+      <input type="text" id="vigencia" name="vigencia" placeholder="Ejemplo: Indefinido">
+     </div>
+
+     <div class="form-group">
+      <label for="fechaEmision">Fecha de emisión del registro</label>
+      <input type="date" id="fechaEmision" name="fechaEmision">
+     </div>
+
+     <div class="form-group">
+      <label for="fechaConsulta">Fecha de consulta del registro</label>
+      <input type="date" id="fechaConsulta" name="fechaConsulta">
+     </div>
+
+     <div class="form-group">
+      <label for="fechaVisita">Fecha de la visita</label>
+      <input type="date" id="fechaVisita" name="fechaVisita">
+     </div>
+
+     <div class="form-group">
+      <label for="horaInicio">Hora de inicio</label>
+      <input type="time" id="horaInicio" name="horaInicio">
+     </div>
+
+     <div class="form-group">
+      <label for="horaFin">Hora de término</label>
+      <input type="time" id="horaFin" name="horaFin">
+     </div>
+
+     <div class="form-group">
+      <label for="encargado">Encargado que recibe el acta</label>
+      <input type="text" id="encargado" name="encargado" placeholder="Ejemplo: Pedro Modelo García">
+     </div>
+
+     <div class="form-group">
+      <label for="dniEncargado">DNI del encargado</label>
+      <input type="text" id="dniEncargado" name="dniEncargado" placeholder="Ejemplo: 00000000">
+     </div>
+
+     <div class="form-group">
+      <label for="distrito">Distrito</label>
+      <input type="text" id="distrito" name="distrito" placeholder="Ejemplo: Churubamba">
+     </div>
+
+     <div class="form-group">
+      <label for="provincia">Provincia</label>
+      <input type="text" id="provincia" name="provincia" placeholder="Ejemplo: Huánuco">
+     </div>
+
+     <div class="form-group">
+      <label for="departamento">Departamento</label>
+      <input type="text" id="departamento" name="departamento" placeholder="Ejemplo: Huánuco">
+     </div>
+
+    </div>
+
+    <label for="direccionLegal">Dirección legal del agente fiscalizado</label>
+    <textarea id="direccionLegal" name="direccionLegal" rows="2" placeholder="Dirección legal ficticia consignada en el registro"></textarea>
+
+    <!-- 4. OBJETIVO -->
+
+
+
+    <h3>4. Objetivo</h3>
+
+
+
+    <label for="objetivo">
+
+     Objetivo de la fiscalización
+
+    </label>
+
+
+
+    <textarea
+
+     id="objetivo"
+
+     name="objetivo"
+
+     rows="4"
+
+     placeholder="Ejemplo: Verificar el cumplimiento de las obligaciones y condiciones de seguridad..."
+
+    ></textarea>
+
+
+
+    <!-- 5. ANTECEDENTES -->
+
+
+
+    <h3>5. Antecedentes</h3>
+
+
+
+    <label for="antecedentes">
+
+     Descripción de antecedentes
+
+    </label>
+
+
+
+    <textarea
+
+     id="antecedentes"
+
+     name="antecedentes"
+
+     rows="6"
+
+     placeholder="Describa los antecedentes del expediente ficticio..."
+
+    ></textarea>
+
+
+
+    <!-- 6. BASE LEGAL -->
+
+
+
+    <h3>6. Base legal</h3>
+
+
+
+    <label for="baseLegal">
+
+     Normas y dispositivos legales aplicables
+
+    </label>
+
+
+
+    <textarea
+
+     id="baseLegal"
+
+     name="baseLegal"
+
+     rows="5"
+
+     placeholder="Ejemplo: Ley N.° 26734, Ley de Creación de Osinergmin..."
+
+    ></textarea>
+
+
+
+    <!-- 7. DESCRIPCIÓN GENERAL -->
+
+
+
+    <h3>7. Descripción general</h3>
+
+
+
+    <label for="descripcion">
+
+     Información general del medio fiscalizado
+
+    </label>
+
+
+
+    <textarea
+
+     id="descripcion"
+
+     name="descripcion"
+
+     rows="5"
+
+     placeholder="Describa el medio de transporte o instalación fiscalizada..."
+
+    ></textarea>
+
+
+
+    <!-- 8. DIRECCIÓN -->
+
+
+
+    <h3>8. Dirección</h3>
+
+
+
+    <label for="direccion">
+
+     Lugar donde se realizó la fiscalización
+
+    </label>
+
+
+
+    <textarea
+
+     id="direccion"
+
+     name="direccion"
+
+     rows="3"
+
+     placeholder="Ejemplo: Carretera Central Km 23, distrito de..., provincia de..."
+
+    ></textarea>
+
+
+
+    <!-- 9. VISITA DE FISCALIZACIÓN -->
+
+
+
+    <h3>9. De la visita de fiscalización</h3>
+
+
+
+    <label for="visita">
+
+     Desarrollo de la visita y hechos constatados
+
+    </label>
+
+
+
+    <textarea
+
+     id="visita"
+
+     name="visita"
+
+     rows="7"
+
+     placeholder="Describa el desarrollo de la visita, horarios, actas suscritas y hechos constatados..."
+
+    ></textarea>
+
+
+
+    <h3>9.1. Hechos constatados de la tabla del acta</h3>
+
+    <p>
+     Cada observación se incorpora a la Tabla N.º 01 del informe,
+     con las mismas columnas del modelo Word.
+    </p>
+
+    <div id="obsItems" class="obs-items"></div>
+
+    <div class="obs-editor">
+     <div class="form-group">
+      <label for="obsTipo">Tipo de observación</label>
+      <input type="text" id="obsTipo" value="OTRAS OBSERVACIONES">
+     </div>
+     <label for="obsBase">Incumplimiento normativo y base legal</label>
+     <textarea id="obsBase" rows="4" placeholder="Transcriba el incumplimiento y, en un párrafo aparte, la base legal."></textarea>
+     <label for="obsDesc">Descripción del incumplimiento verificado</label>
+     <textarea id="obsDesc" rows="3" placeholder="Ejemplo: Tipo B: durante la visita se verificó..."></textarea>
+     <label for="obsMedio">Medio probatorio</label>
+     <input type="text" id="obsMedio" placeholder="Ejemplo: Foto N.º 23, 30 y 39">
+     <button type="button" id="btnAgregarObs" class="btn btn-secundario">
+      Agregar observación a la tabla
+     </button>
+    </div>
+
+    <!-- 10. DESCARGOS -->
+
+
+
+    <h3>10. Evaluación de descargos</h3>
+
+
+
+    <div class="alert alert-info">
+
+     Active esta opción cuando el agente
+
+     fiscalizado haya presentado descargos.
+
+    </div>
+
+
+
+    <label for="tieneDescargo">
+
+     <input
+
+      type="checkbox"
+
+      id="tieneDescargo"
+
+      name="tieneDescargo"
+
+     >
+
+     ¿El agente fiscalizado presentó descargos?
+
+    </label>
+
+
+
+    <div id="zonaDescargo" hidden>
+
+
+
+     <h3>Análisis de descargos</h3>
+
+
+
+     <label for="descargos">
+
+      Evaluación de los documentos presentados
+
+     </label>
+
+
+
+     <textarea
+
+      id="descargos"
+
+      name="descargos"
+
+      rows="7"
+
+      placeholder="Describa los descargos presentados y su evaluación..."
+
+     ></textarea>
+
+
+
+    </div>
+
+
+
+    <!-- 11. ANEXOS -->
+
+
+
+    <h3>11. Anexos</h3>
+
+
+
+    <label for="anexos">
+
+     Documentos y anexos adjuntos
+
+    </label>
+
+
+
+    <textarea
+
+     id="anexos"
+
+     name="anexos"
+
+     rows="5"
+
+     placeholder="Ejemplo: ANEXO 1. Reporte de cierre..."
+
+    ></textarea>
+
+
+
+    <!-- 12. CONCLUSIONES -->
+
+
+
+    <h3>12. Conclusiones</h3>
+
+
+
+    <label for="conclusiones">
+
+     Conclusiones de la fiscalización
+
+    </label>
+
+
+
+    <textarea
+
+     id="conclusiones"
+
+     name="conclusiones"
+
+     rows="6"
+
+     placeholder="Ingrese las conclusiones del informe..."
+
+    ></textarea>
+
+
+
+    <!-- 13. RECOMENDACIONES -->
+
+
+
+    <h3>13. Recomendaciones</h3>
+
+
+
+    <label for="recomendaciones">
+
+     Recomendaciones finales
+
+    </label>
+
+
+
+    <textarea
+
+     id="recomendaciones"
+
+     name="recomendaciones"
+
+     rows="6"
+
+     placeholder="Ingrese las recomendaciones correspondientes..."
+
+    ></textarea>
+
+
+
+    <!-- 14. FIRMAS -->
+
+
+
+    <h3>14. Firmas</h3>
+
+
+
+    <div class="form-grid">
+
+
+
+     <div class="form-group">
+
+      <label for="representante">
+
+       Representante legal
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="representante"
+
+       name="representante"
+
+       placeholder="Ejemplo: Elena Referencia Torres"
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="dniRepresentante">
+
+       DNI del representante
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="dniRepresentante"
+
+       name="dniRepresentante"
+
+       placeholder="Ejemplo: 00000000"
+
+      >
+
+     </div>
+
+
+
+     <div class="form-group">
+
+      <label for="cipSupervisor">
+
+       CIP del fiscalizador
+
+      </label>
+
+
+
+      <input
+
+       type="text"
+
+       id="cipSupervisor"
+
+       name="cipSupervisor"
+
+       placeholder="Ejemplo: 000000"
+
+      >
+
+     </div>
+
+
+
+    </div>
+
+
+
+    <!-- BOTÓN DE GUARDADO -->
+
+
+
+    <div class="acciones">
+
+     <button
+
+      type="submit"
+
+      class="btn btn-guardar"
+
+     >
+
+      Guardar informe
+     </button>
+
+     <button type="button" id="btnDescargarForm" class="btn btn-exito">
+      Descargar Word
+
+     </button>
+
+
+
+     <button
+
+      type="reset"
+
+      class="btn btn-secundario"
+
+     >
+
+      Limpiar formulario
+
+     </button>
+
+    </div>
+
+
+
+   </form>
+
+
+
+  </section>
+
+
+
+  <!-- INFORMES REGISTRADOS -->
+
+
+
+  <section class="card" id="informes">
+
+
+
+   <h2>Informes registrados</h2>
+
+
+
+   <p>
+
+    En esta sección se muestran los informes
+
+    almacenados en la base de datos JSON.
+
+   </p>
+
+
+
+   <div id="lista">
+
+    Cargando informes...
+
+   </div>
+
+
+
+  </section>
+
+
+
+  <!-- VISTA PREVIA -->
+
+
+
+  <section class="card" id="vista-previa">
+
+
+
+   <h2>Vista previa del informe</h2>
+
+
+
+   <p>
+
+    El documento se muestra con el mismo formato del modelo Word.
+    Puede descargarlo en Word sin perder ese formato.
+
+
+   </p>
+
+
+
+   <div class="vista-previa-toolbar">
+
+    <button
+
+     type="button"
+
+     id="btnImprimir"
+
+     class="btn btn-secundario"
+
+    >
+
+     Imprimir / Exportar PDF
+    </button>
+    <button type="button" id="btnDescargarWord" class="btn btn-exito">
+     Descargar Word
+
+    </button>
+
+   </div>
+
+
+
+   <div id="vista" class="vista-previa">
+
+    <p class="doc-vacio-estado">
+
+     Seleccione o guarde un informe para visualizarlo.
+
+    </p>
+
+   </div>
+
+
+
+  </section>
+
+
+
+ </main>
+
+
+
+ <!-- PIE DE PÁGINA -->
+
+
+
+ <footer>
+
+
+
+  <p>
+
+   SISFIS_SAUL - Sistema de Informes de Fiscalización
+
+  </p>
+
+
+
+  <p>
+
+   Proyecto académico de desarrollo de API RESTful
+
+  </p>
+
+
+
+  <p>
+
+   Datos ficticios para fines educativos
+
+  </p>
+
+
+
+ </footer>
+
+
+
+ <!-- JAVASCRIPT -->
+
+
+
+ <script src="documento.js"></script>
+ <script src="app.js"></script>
+
+
+
+</body>
+
+</html>
+
+Escribir mensaje
